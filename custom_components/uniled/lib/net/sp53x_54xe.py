@@ -23,6 +23,7 @@ from ..sptech_conf import (
     CFG_87 as SP5XXE_87,
     # CFG_88 as SP5XXE_88,
     CFG_89 as SP5XXE_89,
+    CFG_94 as SP5XXE_94,
     SPTechChips,
     SPTechConf,
     SPTechSig,
@@ -144,13 +145,14 @@ class SP5XXE(UniledProxy):
             0x8E: SP5XXE_8E(),  # SPI - RGBCCT (2)
             0x89: SP5XXE_89(),  # SPI - RGB + 1 CH PWM
             0x8C: SP5XXE_8C(),  # SPI - RGB + 2 CH PWM
+            0x86: SP5XXE_94(),  # SPI - RGB
         }
 
     class SP538E_SP548E(SPTechSig):
         """SP538E & SP548E."""
 
         info = "SPI RGB (Music) Controller"
-        code = {0x56: "SP538E", 0x63: "SP548E", 0x69: "SP548E"}
+        code = {0x56: "SP538E", 0x63: "SP548E", 0x69: "SP548E",0x94: "SP548E"}
         conf = {0x06: SP5XXE_86()}
 
     class SP539E_SP549E(SPTechSig):
