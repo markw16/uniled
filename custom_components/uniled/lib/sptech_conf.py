@@ -250,3 +250,19 @@ class CFG_8C(CFG_89):
         self.name = "SPI - RGB + 2 CH PWM"
         self.cct = True
         self.order = UNILED_CHIP_ORDER_RGBCW
+
+
+class CFG_94(SPTechConf):
+    def __init__(self):
+        super().__init__()
+        self.name = "SPI - RGB"
+        self.spi = True
+        self.hue = True
+        self.order = UNILED_CHIP_ORDER_RGB
+        self.effects = {
+            SPTechFX.MODE_STATIC_COLOR: SPTechFX.DICTOF_EFFECTS_STATIC_COLOR,
+            SPTechFX.MODE_DYNAMIC_COLOR: SPTechFX.DICTOF_SPI_EFFECTS_DYNAMIC_COLOR,
+            SPTechFX.MODE_SOUND_COLOR: SPTechFX.DICTOF_SPI_EFFECTS_SOUND_COLOR,
+            SPTechFX.MODE_CUSTOM_SOLID: SPTechFX.DICTOF_SPI_EFFECTS_CUSTOM_SOLID,
+            SPTechFX.MODE_CUSTOM_GRADIENT: SPTechFX.DICTOF_SPI_EFFECTS_CUSTOM_GRADIENT,
+        }
